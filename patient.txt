@@ -1,0 +1,36 @@
+using Microsoft.EntityFrameworkCore;
+
+
+namespace DrOffice.Models
+{
+   
+ public class patient    {
+     
+ public string Name { get; set; }
+          
+ public string Area { get; set; }
+       
+ public int phone { get; set; }
+        
+public string Gender { get; set; }
+  
+public int Birthdate { get; set; }
+
+public int SocialSecurityNumber { get; set; }
+        
+public UserType Type { get; set; }
+    }
+
+   
+   
+ public class patientContext : DbContext
+    {
+      
+  public DbSet<patient> patients { get; set; }
+    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=Office.db");
+        }
+    }
+}
